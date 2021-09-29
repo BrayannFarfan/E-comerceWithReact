@@ -23,9 +23,7 @@ export const Navbar = () => {
               <MenuItemsLink>CONTACT</MenuItemsLink>
             </MenuItems>
             <MenuItems>
-              <MenuItemsLink>
-                <CartWidgle />
-              </MenuItemsLink>
+              <MenuItemsLink><CartWidgle /></MenuItemsLink>
             </MenuItems>
           </Menu>
         </NavContent>

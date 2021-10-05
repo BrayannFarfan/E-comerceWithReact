@@ -8,8 +8,6 @@ top: 0;
 z-index: 99;
 background-color: #184D47;
 box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.47);
--webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.47);
--moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.47);
 `;
 
 export const NavContent = styled.div`
@@ -47,11 +45,9 @@ padding: 1.2rem 1.5rem;
 font-size: 1rem;
 
 &:hover{
-   background-color: #183b37; 
+  background-color: #183b37; 
   transition: 0.8s;
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
 }
 `;
 export const MenuItemsLink = styled.a`

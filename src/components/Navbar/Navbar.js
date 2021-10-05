@@ -4,9 +4,9 @@ import { GiBeerStein } from "react-icons/gi";
 import { CartWidgle } from '../CartWidget/CartWidget';
 
 export const Navbar = () => {
+
   return (
     <>
-
       <NavContainer>
         <NavContent>
           <LogoIcon>

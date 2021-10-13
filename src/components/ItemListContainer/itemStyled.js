@@ -2,13 +2,15 @@ import styled from "styled-components";
 
 
 export const ContainerImage = styled.div`
-
 display: flex;
 flex-direction:column;
+justify-content: center;
+align-items: center;
+box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
 `;
 
 export const ContainerHeader = styled.div`
-padding: 15px
+padding: 15px;
 `;
 
 export const ContainerName = styled.h2`
@@ -32,9 +34,11 @@ export const ContainerButton = styled.button`
   padding: 10px;
   cursor: pointer;
   border: 1px solid #184D47;
-  color: #184D47;
   text-transform: uppercase ;
   transition: 1s;
+  background: transparent;
+  color: #333;
+  
 
 
   :hover{

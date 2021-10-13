@@ -2,7 +2,7 @@ import React from 'react'
 import { Item } from './Item'
 import { ContainerItem, Title } from './itemListStyled'
 
-export const ItemList = ({ beer = [] }) => {
+export const ItemList = ({ beer }) => {
   return (
     <>
       <Title>Productos</Title>

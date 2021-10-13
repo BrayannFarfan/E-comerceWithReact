@@ -10,8 +10,9 @@ color: #184D47;
 `;
 export const ContainerItem = styled.div`
 display: flex;
+flex-wrap:wrap;
 gap: 3rem;
 margin-top: 10rem;
-width: 90%;
+width: 80%;
 margin: 4rem auto;
 `;

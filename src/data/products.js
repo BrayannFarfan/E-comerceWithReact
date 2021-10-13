@@ -5,7 +5,7 @@ export const products = [
     description: "breve descripcion de la cerveza o producto que estoy mostrando",
     price: 326,
     img: "./images/heineken2.png",
-    category: "Cerveza Blanca",
+    category: "blanca",
     locations: "Madrid , España",
 
   },
@@ -15,7 +15,7 @@ export const products = [
     description: "breve descripcion de la cerveza o producto que estoy mostrando",
     price: 622,
     img: "./images/brahama2.png",
-    category: "Cerveza Negra",
+    category: "negra",
     locations: "Madrid , España",
 
   },
@@ -25,7 +25,7 @@ export const products = [
     description: "breve descripcion de la cerveza o producto que estoy mostrando",
     price: 487,
     img: "./images/kingfisher2.png",
-    category: "Cerveza Blanca",
+    category: "blanca",
     locations: "Madrid , España",
 
   },
@@ -35,7 +35,7 @@ export const products = [
     description: "breve descripcion de la cerveza o producto que estoy mostrando",
     price: 1233,
     img: "./images/zywiec2.png",
-    category: "Cerveza Negra",
+    category: "negra",
     locations: "Madrid , España",
 
   },
@@ -45,7 +45,7 @@ export const products = [
     description: "breve descripcion de la cerveza o producto que estoy mostrando",
     price: 1233,
     img: "./images/zywiec2.png",
-    category: "Cerveza Blanca",
+    category: "blanca",
     locations: "Madrid , España",
 
   },
@@ -55,7 +55,7 @@ export const products = [
     description: "breve descripcion de la cerveza o producto que estoy mostrando",
     price: 1233,
     img: "./images/zywiec2.png",
-    category: "Cerveza Negra",
+    category: "negra",
     locations: "Madrid , España",
 
   },

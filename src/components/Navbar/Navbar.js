@@ -4,6 +4,7 @@ import './Navbar.css';
 import { Dropdown } from './Dropdown';
 import { CartWidgle } from './CartWidget';
 import { GiBeerStein } from "react-icons/gi";
+import { FaAngleDown } from "react-icons/fa";
 
 export const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -50,11 +51,11 @@ export const Navbar = () => {
             onMouseLeave={onMouseLeave}
           >
             <Link
-              to='/'
+              to='#'
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              Category <i className='fas fa-caret-down' />
+              Category <FaAngleDown />
             </Link>
             {dropdown && <Dropdown />}
           </li>

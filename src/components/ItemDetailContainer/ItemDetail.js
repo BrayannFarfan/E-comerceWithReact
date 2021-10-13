@@ -29,7 +29,7 @@ export const ItemDetail = ({ id, price, description, name, img, category, locati
             </div>
             <div className='options'>
 
-              <p className="quantity">QUANTITY <FaAngleLeft /><span id="qt">3</span><FaAngleRight /></p>
+              <p className="quantity">CANTIDAD <FaAngleLeft /><span id="qt">3</span><FaAngleRight /></p>
             </div>
             <div className='divider'></div>
 

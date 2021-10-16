@@ -1,8 +1,6 @@
 import React from 'react'
 import './ItemDetail.css';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { Image } from './ItemDetailStyle';
-
 
 
 export const ItemDetail = ({ id, price, description, name, img, category, locations }) => {
@@ -12,7 +10,7 @@ export const ItemDetail = ({ id, price, description, name, img, category, locati
 
 
 
-      <div className='container'>
+      <div className='container' >
         <div >
         </div>
         <div className='highlight-window' id='product-img'><div className='highlight-overlay' id='highlight-overlay'></div></div>
@@ -22,10 +20,9 @@ export const ItemDetail = ({ id, price, description, name, img, category, locati
             <h1>{name}</h1>
             <p className='description' id='description'>
               {description}</p>
-            <p className="description">Categoria: {category}</p>
 
             <div className='highlight-window  mobile' id='product-img'>
-              <Image src={img} />
+              <img src={img} alt={name} />
             </div>
             <div className='options'>
 

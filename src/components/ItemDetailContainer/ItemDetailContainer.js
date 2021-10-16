@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { orderProduct } from '../../helper/orderProducts'
-import { ItemDetail } from '../../components/ItemDetailContainer/ItemDetail'
+import { ItemDetail } from './ItemDetail'
 import { LoadingComponent } from '../Navbar/LoadingComponent'
 import { useParams } from 'react-router'
 

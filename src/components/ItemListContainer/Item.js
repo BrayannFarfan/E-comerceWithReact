@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ContainerButton, ContainerDescription, ContainerHeader, ContainerImage, ContainerName, ContainerPrice, Image } from './itemStyled'
 
+
 export const Item = ({ id, price, description, name, img, category }) => {
   return (
     <>

@@ -3,6 +3,7 @@ import { ItemListContainer } from "./components/ItemListContainer/ItemListContai
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import { Navbar } from './components/Navbar/Navbar'
+import { FormularioContainer } from "./components/FormularioContainer/FormularioContainer";
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
           </Route>
 
           <Route exact path="/contacto">
-            <h1>COntacto</h1>
+            <FormularioContainer />
           </Route>
 
           <Route exact path="/cart">

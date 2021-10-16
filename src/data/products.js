@@ -40,7 +40,7 @@ export const products = [
 
   },
   {
-    id: 4,
+    id: 5,
     name: "ZYWIEC",
     description: "breve descripcion de la cerveza o producto que estoy mostrando",
     price: 1233,
@@ -50,7 +50,7 @@ export const products = [
 
   },
   {
-    id: 4,
+    id: 6,
     name: "ZYWIEC",
     description: "breve descripcion de la cerveza o producto que estoy mostrando",
     price: 1233,

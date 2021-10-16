@@ -6,7 +6,7 @@ export const ItemList = ({ beer }) => {
   return (
     <>
       <Title>Productos</Title>
-      <ContainerItem>
+      <ContainerItem >
         {
           beer.map((item) => <Item {...item} key={item.id} />)
         }

@@ -61,7 +61,7 @@ export const Navbar = () => {
           </li>
           <li className='nav-item'>
             <Link
-              to='/'
+              to='/products'
               className='nav-links'
               onClick={closeMobileMenu}
             >

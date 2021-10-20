@@ -11,21 +11,9 @@ export const ItemListContainer = () => {
   const [beer, setBeer] = useState([])
   const [loading, setLoading] = useState(false)
 
-
-
-
-
   const { categoryId } = useParams();
-
-  console.log(categoryId);
-
-
-
-
-
   useEffect(() => {
     setLoading(true)
-
     orderProduct()
       .then((res) => {
         if (categoryId) {

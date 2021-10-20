@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom'
 import { ContainerButton, ContainerDescription, ContainerHeader, ContainerImage, ContainerName, ContainerPrice, Image } from './itemStyled'
 
 
-export const Item = ({ id, price, description, name, img, category }) => {
+export const Item = ({ id, price, description, name, img, category, code }) => {
+
+
+
   return (
     <>
 
@@ -16,7 +19,9 @@ export const Item = ({ id, price, description, name, img, category }) => {
           <ContainerDescription>{description}</ContainerDescription>
           <ContainerPrice>Price : $ {price}</ContainerPrice>
           <ContainerPrice>Categoria :  {category}</ContainerPrice>
-          <ContainerButton>Add to card</ContainerButton>
+          <Link to={`/item/${id}`}>
+            <ContainerButton>Ver Detalle</ContainerButton>
+          </Link>
         </ContainerHeader>
       </ContainerImage>
     </>

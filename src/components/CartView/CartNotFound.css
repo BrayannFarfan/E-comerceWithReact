@@ -1,0 +1,15 @@
+.shopping-container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shopping-container h1 {
+  font-size: 1rem;
+  color: rgb(138, 139, 139);
+}
+.shipping-icons {
+  color: rgb(138, 139, 139);
+  font-size: 4rem;
+}

@@ -1,14 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* .app {
+.back {
   background-image: url("./background.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100vh;
+}
+.back h1 {
   color: #fff;
-  font-size: 100px;
-} */
+}

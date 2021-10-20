@@ -7,6 +7,7 @@ export const products = [
     img: "/images/heineken2.png",
     category: "blanca",
     locations: "Madrid , España",
+    code: "235DO58S"
 
   },
   {
@@ -17,6 +18,7 @@ export const products = [
     img: "/images/brahama2.png",
     category: "negra",
     locations: "Madrid , España",
+    code: "235DO58S"
 
   },
   {
@@ -27,6 +29,7 @@ export const products = [
     img: "/images/kingfisher2.png",
     category: "blanca",
     locations: "Madrid , España",
+    code: "235DO58S"
 
   },
   {
@@ -37,6 +40,7 @@ export const products = [
     img: "/images/zywiec2.png",
     category: "negra",
     locations: "Madrid , España",
+    code: "235DO58S"
 
   },
   {
@@ -47,6 +51,7 @@ export const products = [
     img: "/images/zywiec2.png",
     category: "blanca",
     locations: "Madrid , España",
+    code: "235DO58S"
 
   },
   {
@@ -57,6 +62,7 @@ export const products = [
     img: "/images/zywiec2.png",
     category: "negra",
     locations: "Madrid , España",
+    code: "235DO58S"
 
   },
 ]

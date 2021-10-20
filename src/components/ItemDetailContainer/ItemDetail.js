@@ -1,15 +1,37 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import './ItemDetail.css';
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { ItemCounter } from '../ItemCounter/ItemCounter';
+import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 
-export const ItemDetail = ({ id, price, description, name, img, category, locations }) => {
+export const ItemDetail = ({ id, price, description, name, img, category, locations, code }) => {
+
+  const [cantidad, setCantidad] = useState(0)
+
+  const { addToCard, isInCart } = useContext(CartContext)
+
+  const handleAgregar = () => {
+    const newItems = {
+      id,
+      name,
+      price,
+      category,
+      locations,
+      cantidad,
+      code,
+      img
+    }
+
+    if (cantidad > 0) {
+      addToCard(newItems)
+    }
+  }
+
+
+
   return (
     <>
-
-
-
-
       <div className='container' >
         <div >
         </div>
@@ -20,20 +42,27 @@ export const ItemDetail = ({ id, price, description, name, img, category, locati
             <h1>{name}</h1>
             <p className='description' id='description'>
               {description}</p>
-
             <div className='highlight-window  mobile' id='product-img'>
               <img src={img} alt={name} />
             </div>
-            <div className='options'>
 
-              <p className="quantity">CANTIDAD <FaAngleLeft /><span id="qt">3</span><FaAngleRight /></p>
-            </div>
-            <div className='divider'></div>
 
-            <div className='purchase-info'>
-              <div className='price'>$ {price}</div>
-              <button>ADD TO CART</button>
-            </div>
+            {isInCart(id) ? <Link to="/cart"><button>IR AL CARRITO</button></Link> :
+              <>
+                <div className='options'>
+                  <ItemCounter cantidad={cantidad} setCantidad={setCantidad} />
+                </div>
+                <div className='divider'></div>
+                <div className='purchase-info'>
+                  <p className='prices'>$ {price}</p>
+                  <button
+                    onClick={handleAgregar}
+                  >ADD TO CART</button>
+                </div>
+              </>
+            }
+
+
           </div>
         </div>
       </div>

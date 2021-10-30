@@ -76,10 +76,10 @@ li {
 
 .remove {
   bottom: 1.125rem;
-  float: right;
   position: absolute;
   right: 0;
-  text-align: right;
+  bottom: 80%;
+  /* text-align: right; */
   background: rgb(139, 13, 3);
 }
 .trash {
@@ -98,7 +98,6 @@ li {
 .remove button {
   background-color: transparent;
   color: #777;
-  float: none;
   text-decoration: underline;
   text-transform: uppercase;
 }

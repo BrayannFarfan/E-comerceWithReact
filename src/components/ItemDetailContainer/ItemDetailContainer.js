@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { orderProduct } from '../../helper/orderProducts'
 import { ItemDetail } from './ItemDetail'
 import { LoadingComponent } from '../Navbar/LoadingComponent'
 import { useParams } from 'react-router'
+import { getFirestore } from '../../config/config'
 
 export const ItemDetailContainer = () => {
 
@@ -17,10 +17,18 @@ export const ItemDetailContainer = () => {
   useEffect(() => {
     setLoading(true)
 
-    orderProduct()
-      .then(res => {
-        setItem(res.find(prod => prod.id === Number(itemId)))
+    const db = getFirestore()
+    const productos = db.collection('productos')
+    const item = productos.doc(itemId)
+
+    item.get()
+      .then((doc) => {
+        setItem({
+          id: doc.id,
+          ...doc.data()
+        })
       })
+      .catch((err) => console.log(err))
       .finally(() => {
         setLoading(false)
       })

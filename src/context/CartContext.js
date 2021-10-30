@@ -28,8 +28,14 @@ export const CartProvider = ({ children }) => {
   }
 
   const subTotal = () => {
-    return carrito.reduce((prod) => prod.price * prod.cantidad, 0)
+    return carrito.reduce((prod) => Number(prod.price) * Number(prod.cantidad))
   }
+
+  // const subTotal = (itemId) => {
+  //   const item = carrito.find((prod) => Number(prod.id) === Number(itemId))
+  //   return item.price * item.cantidad
+  // }
+
 
   const isInCart = (itemId) => {
     return carrito.some((pro) => pro.id === itemId)

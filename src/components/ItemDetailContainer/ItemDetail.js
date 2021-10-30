@@ -33,8 +33,7 @@ export const ItemDetail = ({ id, price, description, name, img, category, locati
   return (
     <>
       <div className='container' >
-        <div >
-        </div>
+
         <div className='highlight-window' id='product-img'><div className='highlight-overlay' id='highlight-overlay'></div></div>
         <div className='window'>
           <div className='main-content'>
@@ -43,8 +42,9 @@ export const ItemDetail = ({ id, price, description, name, img, category, locati
             <p className='description' id='description'>
               {description}</p>
             <div className='highlight-window  mobile' id='product-img'>
-              <img src={img} alt={name} />
+              <img src={img} alt={name} key={id} />
             </div>
+
 
 
             {isInCart(id) ? <Link to="/cart"><button>IR AL CARRITO</button></Link> :
@@ -59,9 +59,13 @@ export const ItemDetail = ({ id, price, description, name, img, category, locati
                     onClick={handleAgregar}
                   >ADD TO CART</button>
                 </div>
+                <Link to="/products">
+                  <div className="history">
+                    <button>SEGUIR COMPRA</button>
+                  </div>
+                </Link>
               </>
             }
-
 
           </div>
         </div>

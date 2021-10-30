@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { orderProduct } from '../../helper/orderProducts';
 import { ItemList } from './ItemList';
 import { LoadingComponent } from '../Navbar/LoadingComponent';
+import { getFirestore } from '../../config/config';
 
 
 export const ItemListContainer = () => {
@@ -14,18 +14,21 @@ export const ItemListContainer = () => {
   const { categoryId } = useParams();
   useEffect(() => {
     setLoading(true)
-    orderProduct()
+
+    const db = getFirestore()
+    const productos = categoryId ? db.collection('productos').where('category', '==', categoryId) : db.collection('productos')
+    productos.get()
       .then((res) => {
-        if (categoryId) {
-          setBeer(res.filter(prod => prod.category === categoryId))
-        } else {
-          setBeer(res)
-        }
-      })
-      .catch((err) => console.log(err))
+        const newItem = res.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() }
+        })
+        setBeer(newItem)
+      }).catch((err) => console.log(err))
       .finally(() => {
         setLoading(false)
       })
+
+
   }, [categoryId])
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, {useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 import './CartItem.css'
 import { BiTrashAlt } from "react-icons/bi";
@@ -7,6 +7,34 @@ import { Link } from 'react-router-dom';
 export const CartItem = () => {
 
   const { carrito, clear, removeItem, calcularTotal } = useContext(CartContext)
+
+
+  const [values, setValues] = useState({
+    nombre:'',
+    apellido:'',
+    email:'',
+    tel:''
+})
+
+const handleInputChange = (e) =>{
+    setValues({
+        ...values,
+        [e.target.name]: e.target.value
+    })
+}
+
+const handleSubmit = (e) => {
+    e.preventDefault()
+
+    const orden={
+        buyer:{
+            ...values
+        },
+        items:carrito,
+        total: calcularTotal()
+    }
+    console.log(orden);
+}
   return (
     <div>
       <div className="carrito">
@@ -30,14 +58,55 @@ export const CartItem = () => {
               <option defaultValue="signed-for">Rappi</option>
             </select>
           </div>
+
+
+          < form onSubmit={handleSubmit}>
+
+<input 
+    type="text"
+    placeholder="Nombre"
+    name="nombre"
+    value={values.nombre}
+    onChange={handleInputChange}
+    />
+    {/* {values.nombre.length === 0 && <small>Este campo es obligatorio</small>} */}
+<input 
+     type="text"
+     placeholder="Apellido"
+     name="apellido"
+     value={values.apellido}
+     onChange={handleInputChange}
+/>
+    {/* {values.apellido.length === 0 && <small>Este campo es obligatorio</small>} */}
+    <input 
+     type="email"
+     placeholder="Email"
+     name="email"
+     value={values.email}
+     onChange={handleInputChange}
+/>
+    {/* {values.email.length === 0 && <small>Este campo es obligatorio</small>} */}
+
+    <input 
+     type="tel"
+     placeholder="Tel"
+     name="tel"
+     value={values.tel}
+     onChange={handleInputChange}
+/>
+    {/* {values.tel.length === 0 && <small>Este campo es obligatorio</small>} */}
+            <button className="clear-cart" type="submit">Finalizar Compra</button>
+            </form>
+
+
           <div className="summary-total">
             <div className="total-title">Total</div>
             <div className="total-value final-value">$ {calcularTotal()}</div>
           </div>
           <div className="summary-checkout">
-            <Link to="/">
-              <button className="clear-cart">REALIZAR PAGO</button>
-            </Link>
+            {/* <Link to="/checkout">
+              <button className="clear-cart" >REALIZAR PAGO</button>
+            </Link> */}
           </div>
         </div>
       </aside>

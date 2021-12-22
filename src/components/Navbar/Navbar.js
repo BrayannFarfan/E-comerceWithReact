@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { Dropdown } from './Dropdown';
 import { CartWidgle } from './CartWidget';
 import { GiBeerStein } from "react-icons/gi";
 import { FaAngleDown } from "react-icons/fa";
+import { UserAuthContext } from "../../context/UserAuthContext"
 
 export const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -29,9 +30,16 @@ export const Navbar = () => {
     }
   };
 
+  const { isAuthenticated , logout} = useContext(UserAuthContext);
+  
+  // const handleSubmit = () => {
+  //   setIsAuthenticated(false);
+  // }
+
   return (
     <>
       <nav className='navbar'>
+    
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}><GiBeerStein size={"2em"} />
           CerMark
           <i className='fab fa-firstdraft' />
@@ -39,12 +47,16 @@ export const Navbar = () => {
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
+
+
+   
+        
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+          {/* <li className='nav-item'>
+            <Link to='/ ' className='nav-links' onClick={closeMobileMenu}>
               Home
             </Link>
-          </li>
+          </li> */}
           <li
             className='nav-item'
             onMouseEnter={onMouseEnter}
@@ -68,16 +80,7 @@ export const Navbar = () => {
               Products
             </Link>
           </li>
-          <li className='nav-item'>
-            <Link
-              to='/login'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Login
-            </Link>
-          </li>
-
+        
           <li className="nav-item">
             <Link
               to="/cart"
@@ -87,9 +90,12 @@ export const Navbar = () => {
               <CartWidgle />
             </Link>
           </li>
-
-
+          <li>
+          { ! isAuthenticated  || <button onClick={logout}>Salir</button>}
+          </li>
         </ul>
+      
+           
       </nav>
     </>
   );

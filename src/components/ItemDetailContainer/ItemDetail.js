@@ -47,7 +47,7 @@ export const ItemDetail = ({ id, price, description, name, img, category, locati
 
 
 
-            {isInCart(id) ? <Link to="/cart"><button>IR AL CARRITO</button></Link> :
+            {isInCart(id) ? <Link to="/cart/checkout"><button>IR AL CARRITO</button></Link> :
               <>
                 <div className='options'>
                   <ItemCounter cantidad={cantidad} setCantidad={setCantidad} />

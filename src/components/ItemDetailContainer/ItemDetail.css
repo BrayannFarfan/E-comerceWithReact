@@ -46,7 +46,7 @@ h1 {
   width: 100%;
 }
 
-button {
+/* button {
   border: none;
   height: 40px;
   margin-top: auto;
@@ -55,7 +55,7 @@ button {
   color: #fff;
   cursor: pointer;
   background: #183b37;
-}
+} */
 .options-cantidad {
   padding: 15px;
 }

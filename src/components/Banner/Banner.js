@@ -4,7 +4,7 @@ import React from 'react'
 export const Banner = () => {
     return (
         <div className="banner">
-            
+            <h1>Bienvenidos a CerveMark</h1>
         </div>
     )
 }

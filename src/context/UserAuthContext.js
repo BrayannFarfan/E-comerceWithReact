@@ -28,6 +28,10 @@ export const UserAuthProvider = ({children}) => {
         return auth.signInWithPopup(provider);
     }
 
+    const signup = (email, password) =>{
+        return auth.createUserWithEmailAndPassword(email, password);
+    }
+
 
 useEffect( () =>{
     if(currentUser){
@@ -46,7 +50,7 @@ useEffect(() =>{
     return () =>{
         unsubscribe();
     }
-}, [])
+})
 
 
     return (
@@ -57,6 +61,7 @@ useEffect(() =>{
            currentUser,
            logout,
            loginGoogle,
+           signup,
        }}>
        {children}
        </UserAuthContext.Provider>

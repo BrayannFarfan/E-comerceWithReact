@@ -2,7 +2,7 @@ import React, {useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 import './CartItem.css'
 import { BiTrashAlt } from "react-icons/bi";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export const CartItem = () => {
 

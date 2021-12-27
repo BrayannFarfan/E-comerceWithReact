@@ -6,11 +6,13 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Navbar } from './components/Navbar/Navbar'
 import { CartViewContainer } from "./components/CartView/CartViewContainer";
 import { CartProvider } from './context/CartContext';
-import { Checkout } from "./components/Checkout/Checkout";
+// import { Checkout } from "./components/Checkout/Checkout";
 import { useContext} from "react";
 import { UserAuthContext } from "./context/UserAuthContext";
 import { UserAuthenticate } from "./components/UserAuthenticate/UserAuthenticate";
 import { Banner } from "./components/Banner/Banner"
+import { Signup } from "./components/UserAuthenticate/Signup"
+
 
 function App() {
 
@@ -21,8 +23,8 @@ const {isAuthenticated} = useContext(UserAuthContext);
 
       <CartProvider>
         <BrowserRouter>
-        
           <Switch>
+          <Route exact path="/signup" component={Signup}/>
     {
       isAuthenticated 
       ?
@@ -40,17 +42,16 @@ const {isAuthenticated} = useContext(UserAuthContext);
             <Route exact path="/item/:itemId">
               <ItemDetailContainer />
             </Route>
-            {/* <Route exact path="/Login">
-             <UserAuthenticate/>
-            </Route> */}
+            
             <Route exact path="/cart/checkout">
               <CartViewContainer />
             </Route>
             </>
       :
-            <Route exact to="/login">
-              <UserAuthenticate/>
-            </Route>
+             <Route exact to="/login">
+               <UserAuthenticate/>
+             </Route>
+          
            
     }
           </Switch>

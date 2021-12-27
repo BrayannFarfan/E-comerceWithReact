@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { UserAuthContext } from "../../context/UserAuthContext";
 import { useHistory } from 'react-router-dom';
-// import { Banner } from "../Banner/Banner"
 
 
 export const UserAuthenticate = () => {
@@ -84,6 +83,9 @@ const handleGoogle = (e) => {
                     >
                         login with Google
                     </button>
+                    <span>no tenes cuenta?
+                        <Link  to="/signup">Sing Up</Link>
+                    </span>
                     
                 </div>
             </div>

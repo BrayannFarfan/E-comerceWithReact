@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { UserAuthContext } from "../../context/UserAuthContext";
 import { useHistory } from 'react-router-dom';
+import './UserAuthenticate.css';
 
 
 export const UserAuthenticate = () => {
@@ -43,9 +44,10 @@ const handleGoogle = (e) => {
         <div
         className=''
         >
-        <div>
-            <div>
-                <div>
+        <div className='form-container'>
+            <h1>Te damos la Binvenida :)</h1>
+            <div className='form-content'>
+                <div className='form-control'>
                     <h2>login</h2>
                     <form onSubmit={handleSubmit}> 
                         <div>
@@ -53,18 +55,16 @@ const handleGoogle = (e) => {
                             <input 
                             type='email'
                             className=''
-                            placeholder='Email'
                             name='email'
                             value={email}
                             onChange={handleChange}
                             />
                         </div>
                         <div>
-                            <label>Passwprd</label>
+                            <label>Password</label>
                             <input 
                             type='password'
                             className=""
-                            placeholder='Password'
                             name='password'
                             onChange={handleChange}
                             value={password}
@@ -72,21 +72,23 @@ const handleGoogle = (e) => {
                         </div>
                         <button
                         type='submit'
-                        className=''
+                        className='btn-login'
                         >
                             Login
                         </button>
                     </form>
+                    <div className='btn-links'>
                     <button
                     type='submit'
                     onClick={handleGoogle}
+                    className='btn-google'
                     >
                         login with Google
                     </button>
                     <span>no tenes cuenta?
                         <Link  to="/signup">Sing Up</Link>
                     </span>
-                    
+                        </div>
                 </div>
             </div>
         </div>

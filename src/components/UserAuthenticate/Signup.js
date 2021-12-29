@@ -58,7 +58,6 @@ export const Signup = () => {
                             </div>
                             <button
                             type='submit'
-                            placeholder='registrate'
                             className='btn-signup'
                             >
                                 Sign Up

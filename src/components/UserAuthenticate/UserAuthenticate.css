@@ -1,0 +1,82 @@
+.form-container{
+    background: chartreuse;
+    height: 100vh;
+}
+.form-container h1{
+    position: absolute;
+    z-index: 10000;
+    display: flex;
+    bottom: 50%;
+    left: 10%;
+    font-size: 3rem;
+}
+.form-content{
+    background: chocolate;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+    width: 90%;
+    margin: auto;
+    position: relative;
+}
+.form-control{
+    background: rgb(249, 249, 250);
+    width: 350px;
+    height: 550px;
+    padding: 38px 35px 0px 5px;
+    border-radius: 5px;
+    position: relative;
+}
+.form-control h2{
+    text-align: center;
+    padding: 38px 27px 45px;
+    font-size: 3rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+form div{
+    display: flex;
+    flex-direction: column;
+}
+form div label{
+    margin: 1rem 0 0 -1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+form div input{
+    width: 20em;
+    height: 3em;
+    margin: 1rem 0 0 -1rem;
+    outline: none;
+    border: none;
+}
+.btn-login{
+    display: block;
+    width: 100%;
+    box-shadow: none;
+    border: 0;
+    background: yellow;
+    color: rgb(24, 23, 22);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    position: relative;
+    height: 48px;
+    left: 15px;
+    top: 15px;
+}
+.btn-links{
+    position: absolute;
+    bottom: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

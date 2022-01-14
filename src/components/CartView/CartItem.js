@@ -1,13 +1,18 @@
 import React, {useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
+// import { LoadingComponent } from '../Navbar/LoadingComponent'
 import './CartItem.css'
 import { BiTrashAlt } from "react-icons/bi";
-// import { Link } from 'react-router-dom';
+import Swal from "sweetalert2"
+import { generarOrden } from '../../config/generarOrden';
+
+
 
 export const CartItem = () => {
 
-  const { carrito, clear, removeItem, calcularTotal } = useContext(CartContext)
+  // const { loading , setLoading} = useContext(CartContext)
 
+  const { carrito, clear, removeItem, calcularTotal } = useContext(CartContext)
 
   const [values, setValues] = useState({
     nombre:'',
@@ -23,25 +28,67 @@ const handleInputChange = (e) =>{
     })
 }
 
-const handleSubmit = (e) => {
+const handleSubmit =  (e) => {
     e.preventDefault()
 
-    const orden={
-        buyer:{
-            ...values
-        },
-        items:carrito,
-        total: calcularTotal()
-    }
-    console.log(orden);
+    //  if(values.nombre.length < 3 ){
+    //   alert("nombre invalido")  
+    //  }
+
+    // setLoading(true)
+    let timerInterval
+Swal.fire({
+  title: 'Prosecando su compra!',
+  html: 'Su compra estará lista en  <b></b> segundos.',
+  timer: 8000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
+  generarOrden(values, carrito, calcularTotal())
+    .then((res) => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Orden Registrada',
+        text: ` Guarde su numero de Orden : ${res}`,
+        willClose: () =>{
+          clear()
+        }
+      })
+    }).catch((err) =>{
+      Swal.fire({
+        icon: 'Error',
+        title: 'Producto sin stock',
+        text: ` No hay stock de  : ${err.map(el => el.name).join(', ')}`,
+      })
+    })
+    // .finally(()=>{
+    //   setLoading(false)
+    // })
 }
+
   return (
+    <>
+  {/* {loading && <LoadingComponent />} */}
     <div>
       <div className="carrito">
         <button onClick={clear} className="clear-cart">Vaciar Carrito</button>
+        
       </div>
       <h2 className="encabezado">Detalle de compra</h2>
-      <aside>
+      <aside className='aside'>
         <div className="summary">
           <div className="summary-total-items"><span className="total-items"></span>CheckOut de productos</div>
           <div className="summary-subtotal">
@@ -61,6 +108,7 @@ const handleSubmit = (e) => {
 
 
           < form onSubmit={handleSubmit}>
+            <h3>Complete sus datos</h3>
 
 <input 
     type="text"
@@ -95,7 +143,7 @@ const handleSubmit = (e) => {
      onChange={handleInputChange}
 />
     {/* {values.tel.length === 0 && <small>Este campo es obligatorio</small>} */}
-            <button className="clear-cart" type="submit">Finalizar Compra</button>
+            <button className="" type="submit">Finalizar Compra</button>
             </form>
 
 
@@ -144,10 +192,12 @@ const handleSubmit = (e) => {
                 </div>
               </div>
             </div>
+            
           </>
         ))
       }
 
     </div>
+    </>
   )
 }

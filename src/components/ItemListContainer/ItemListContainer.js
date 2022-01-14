@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { UIContext } from '../../context/UIContext';
 import { ItemList } from './ItemList';
 import { LoadingComponent } from '../Navbar/LoadingComponent';
 import { getFirestore } from '../../config/config';
@@ -9,7 +10,9 @@ export const ItemListContainer = () => {
 
 
   const [beer, setBeer] = useState([])
-  const [loading, setLoading] = useState(false)
+
+  const {loading, setLoading } = useContext(UIContext)
+
 
   const { categoryId } = useParams();
   useEffect(() => {
@@ -29,7 +32,7 @@ export const ItemListContainer = () => {
       })
 
 
-  }, [categoryId])
+  }, [categoryId, setLoading])
 
   return (
     <>

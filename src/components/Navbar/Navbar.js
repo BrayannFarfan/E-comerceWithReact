@@ -41,8 +41,7 @@ export const Navbar = () => {
       <nav className='navbar'>
     
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}><GiBeerStein size={"2em"} />
-          CerMark
-          <i className='fab fa-firstdraft' />
+         
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -73,11 +72,11 @@ export const Navbar = () => {
           </li>
           <li className='nav-item'>
             <Link
-              to='/products'
+              to='/about'
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              Products
+              About Us
             </Link>
           </li>
         

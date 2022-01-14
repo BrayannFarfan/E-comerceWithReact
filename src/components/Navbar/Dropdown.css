@@ -1,9 +1,10 @@
 .dropdown-menu {
   width: 200px;
   position: absolute;
-  top: 80px;
+  top: 70px;
   list-style: none;
   text-align: start;
+
 }
 
 .dropdown-menu li {
@@ -25,7 +26,7 @@
   width: 100%;
   text-decoration: none;
   color: #fff;
-  padding: 16px;
+  padding: 3px;
 }
 
 @media screen and (max-width: 960px) {

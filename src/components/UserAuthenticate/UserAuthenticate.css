@@ -1,17 +1,9 @@
-.form-container{
-    background: chartreuse;
-    height: 100vh;
-}
-.form-container h1{
-    position: absolute;
-    z-index: 10000;
-    display: flex;
-    bottom: 50%;
-    left: 10%;
-    font-size: 3rem;
+
+.form-container-text{
+    width: 50%;
+    margin: auto;
 }
 .form-content{
-    background: chocolate;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -21,7 +13,7 @@
     position: relative;
 }
 .form-control{
-    background: rgb(249, 249, 250);
+    background: rgb(255, 253, 253);
     width: 350px;
     height: 550px;
     padding: 38px 35px 0px 5px;
@@ -37,7 +29,6 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
 }
 form div{
     display: flex;
@@ -49,19 +40,22 @@ form div label{
     font-weight: bold;
 }
 form div input{
-    width: 20em;
+    width:  21em;
     height: 3em;
+    position: relative;
+    left: 1.5rem;
     margin: 1rem 0 0 -1rem;
     outline: none;
-    border: none;
+    border: 3px solid #cac8c8;
+    border-radius: 5px;
 }
 .btn-login{
     display: block;
     width: 100%;
     box-shadow: none;
     border: 0;
-    background: yellow;
-    color: rgb(24, 23, 22);
+    background: #183b37;
+    color: #fff;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
@@ -79,4 +73,45 @@ form div input{
     justify-content: center;
     align-items: center;
     width: 100%;
+    bottom: 2.5rem;
+}
+.btn-google{
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    top: 1rem;
+   
+}
+.fa-google{
+    color: red;
+}
+.up{
+    top: 2rem;
+    position: relative;
+}
+.sign{
+    text-decoration: none;
+    padding: 0 0 0 .5em;
+    color: rgb(4, 4, 90);
+}
+.or{
+    color: rgb(77, 77, 77);
+    position: relative;
+    top: 1rem;
+}
+
+@media (max-width: 500px){
+    form div label{
+        padding: 0 25px;
+    }
+    .form-control{
+        background: rgb(249, 249, 250);
+    }
+
+   
 }

@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { ItemDetail } from './ItemDetail'
 import { LoadingComponent } from '../Navbar/LoadingComponent'
 import { useParams } from 'react-router'
 import { getFirestore } from '../../config/config'
+import { UIContext } from '../../context/UIContext'
 
 export const ItemDetailContainer = () => {
 
 
   const [item, setItem] = useState(null)
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
+
+  const { loading, setLoading} = useContext(UIContext)
 
 
   const { itemId } = useParams()
@@ -33,7 +36,7 @@ export const ItemDetailContainer = () => {
         setLoading(false)
       })
 
-  }, [itemId])
+  },[itemId , setLoading])
   return (
     <>
       {loading ? <LoadingComponent /> : <ItemDetail {...item} />}

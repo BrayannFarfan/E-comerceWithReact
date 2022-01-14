@@ -2,7 +2,10 @@ import React, {useRef , useContext, } from 'react'
 import { UserAuthContext } from '../../context/UserAuthContext'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
-// import './UserAutenticate.css'
+import PowerSlap from "../../video/cervemark.mp4"
+import Swal from 'sweetalert2'
+// import { useForm } from "react-hook-form";
+
 
 export const Signup = () => {
 
@@ -17,54 +20,71 @@ export const Signup = () => {
         e.preventDefault()
 
         signup(emailRef.current.value, passwordRef.current.value, confPasswordRef.current.value)
-        push("/")
+        Swal.fire({
+            icon: 'success',
+            title: 'Registro correcto',
+            text: 'Te redireccionaremos a la Home',
+            willClose: () =>{
+                push("/")
+              }
+          })
     }
-
 
     return (
         <div>
+              <video autoPlay loop muted
+            style={{
+                position: "absolute",
+                height: "100%",
+                width: "100%",
+                objectFit: "cover",
+                transform: "trasslate(-50%, -50% )",
+                zIndex: "-1"
+            }}
+            >
+                <source src={PowerSlap}type='video/mp4' />
+            </video>
             <div >
-                <div>
-                    <div>
+                <div className='form-content'>
+                    <div className='form-control'>
                         <h2>Sign up</h2>
                         <form onSubmit={handleSignup}>
                             <div>
                                 <label>Email</label>
                                 <input 
                                 type="email"
-                                className=''
-                                placeholder='Ingrese su email'
                                 name='email'
                                 ref={emailRef}
+                                required
                                 />
                             </div>
                             <div>
                                 <label>Password</label>
                                 <input 
                                 type="password"
-                                placeholder="Ingrese Password"
                                 name="password"
                                 ref={passwordRef}
+                                required
                                 />
                             </div>
                             <div>
                                 <label>Repetir Password</label>
                                 <input 
                                 type="password"
-                                placeholder='Repetir Password'
                                 name='password'
                                 ref={confPasswordRef}
+                                required
                                 />
                             </div>
                             <button
                             type='submit'
-                            className='btn-signup'
+                            className='btn-login'
                             >
                                 Sign Up
                             </button>
                         </form>
-                        <span>ya tenes una cuenta? 
-                            <Link to="/login">LogIn</Link>
+                        <span className='up'>ya tenes una cuenta? 
+                            <Link to="/login" className='sign'>Login</Link>
                         </span>
                     </div>
                 </div>

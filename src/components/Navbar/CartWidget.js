@@ -8,9 +8,7 @@ export const CartWidgle = () => {
 
   const { calcularCantidad } = useContext(CartContext)
   return (
-    <div style={{
-      visibility: calcularCantidad() === 0 ? 'hidden' : 'visible'
-    }}>
+    <div>
       <Shopping>
         <RiShoppingCartLine /><span>{calcularCantidad()}</span>
       </Shopping>

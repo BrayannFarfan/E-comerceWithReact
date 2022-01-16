@@ -8,7 +8,7 @@ export const CartNotFound = () => {
     <div className="shopping-container">
       <GiShoppingCart className="shipping-icons" />
       <h1>NO HAY PRODUCTOS EN EL CARRITO</h1>
-      <Link to="/products">
+      <Link to="/category/negra">
         <button className="rediction">
           IR A COMPRAR
         </button>

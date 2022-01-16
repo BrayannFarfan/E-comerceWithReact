@@ -22,19 +22,7 @@ img,
   width: 100%;
 }
 
-button,
-.basket,
-.basket-module,
-.basket-labels,
-.item,
-.price,
-.quantity,
-.subtotal,
-.basket-product,
-.product-image,
-.product-details {
-  float: left;
-}
+
 .basket {
   padding: 0 1rem;
   width: 70%;

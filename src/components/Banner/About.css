@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+.about {
+  background-image: url(../../image/background.jpg);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+}
+.about-content p{
+    font-family: 'Alex Brush', cursive;
+    color: #fff;
+    font-size: 39px;
+    letter-spacing: .22em;
+  }
+  .about-line{
+    width: 30px;
+    height: 2px;
+    background: rgb(173, 154, 59);
+    margin-top: 2rem;
+  }
+  .about-content h2{
+    font-size: 61px;
+    line-height: .94em;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: .32em;
+  }
+  .about-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+  
+@media only screen and (max-width: 500px) {
+  .about-content h2{
+    font-size: 2rem;
+  }
+  .about {
+    background-position: left;
+  }
+}

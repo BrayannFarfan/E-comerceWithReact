@@ -1,0 +1,67 @@
+.container__story{
+    display: flex;
+    width: 100vw;
+    height: 75vh;
+}
+.container__story__one{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /* top: 4em; */
+    background: url(../../image/back.jpg);
+}
+.container__story__two{
+    width: 50%;
+    height: 100%;
+    background: url(../../image/ourWe.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container__story__one div{
+    width: 40px;
+    height: 2px;
+    background: #AD9A3B;
+    margin-top: 1rem;
+}
+.story__one__title{
+    font-size: 36px;
+    line-height: 1.22em;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 7rem;
+    color: #fff;
+}
+.story__one__slogan{   
+    letter-spacing: .01em;
+    font-size: 39px;
+    color: #fff;
+    line-height: 1em;
+    font-family: "Alex Brush",cursive;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+.story__one__text{
+    width: 65%;
+    text-align: center;
+    color: #fff;
+    margin-top: 1rem;
+}
+.story__links{
+    margin-top: 1rem;
+    background-color: #AD9A3B;
+    padding: 15px;
+    color: #fff;
+    text-decoration: none;
+}
+@media only screen and (max-width: 600px) {
+    .container__story__two{
+        display: none;
+    }
+    .container__story__one{
+        width: 100vw;
+    }
+    
+}

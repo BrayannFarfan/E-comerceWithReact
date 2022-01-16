@@ -32,30 +32,28 @@ export const Navbar = () => {
 
   const { isAuthenticated , logout} = useContext(UserAuthContext);
   
-  // const handleSubmit = () => {
-  //   setIsAuthenticated(false);
-  // }
+
 
   return (
     <>
       <nav className='navbar'>
     
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}><GiBeerStein size={"2em"} />
-         
+        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+          <GiBeerStein size={"2em"} className='nav-icon'/>
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
-
-
-   
-        
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          {/* <li className='nav-item'>
-            <Link to='/ ' className='nav-links' onClick={closeMobileMenu}>
-              Home
+          <li className='nav-item'>
+            <Link
+              to='/team'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+               Team
             </Link>
-          </li> */}
+          </li>
           <li
             className='nav-item'
             onMouseEnter={onMouseEnter}
@@ -76,10 +74,21 @@ export const Navbar = () => {
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              About Us
+              About
             </Link>
           </li>
-        
+          <li className='nav-item'>
+            <Link
+              to='/contact'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Contact
+            </Link>
+          </li> 
+            <li>
+            { ! isAuthenticated  || <button onClick={logout} className='nav-out '>Sign Out</button>}
+            </li>
           <li className="nav-item">
             <Link
               to="/cart"
@@ -89,9 +98,7 @@ export const Navbar = () => {
               <CartWidgle />
             </Link>
           </li>
-          <li>
-          { ! isAuthenticated  || <button onClick={logout}>Salir</button>}
-          </li>
+          
         </ul>
       
            

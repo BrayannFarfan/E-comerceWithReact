@@ -8,12 +8,10 @@
 }
 
 .dropdown-menu li {
-  background: #183b37;
+  background: #050505;
   cursor: pointer;
-}
+  z-index: 10000000;
 
-.dropdown-menu li:hover {
-  background: #316861;
 }
 
 .dropdown-menu.clicked {
@@ -27,6 +25,7 @@
   text-decoration: none;
   color: #fff;
   padding: 3px;
+
 }
 
 @media screen and (max-width: 960px) {

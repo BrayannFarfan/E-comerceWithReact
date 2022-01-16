@@ -1,6 +1,5 @@
 import React, {useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
-// import { LoadingComponent } from '../Navbar/LoadingComponent'
 import './CartItem.css'
 import { BiTrashAlt } from "react-icons/bi";
 import Swal from "sweetalert2"
@@ -10,7 +9,6 @@ import { generarOrden } from '../../config/generarOrden';
 
 export const CartItem = () => {
 
-  // const { loading , setLoading} = useContext(CartContext)
 
   const { carrito, clear, removeItem, calcularTotal } = useContext(CartContext)
 
@@ -35,7 +33,6 @@ const handleSubmit =  (e) => {
     //   alert("nombre invalido")  
     //  }
 
-    // setLoading(true)
     let timerInterval
 Swal.fire({
   title: 'Prosecando su compra!',
@@ -74,14 +71,10 @@ Swal.fire({
         text: ` No hay stock de  : ${err.map(el => el.name).join(', ')}`,
       })
     })
-    // .finally(()=>{
-    //   setLoading(false)
-    // })
 }
 
   return (
     <>
-  {/* {loading && <LoadingComponent />} */}
     <div>
       <div className="carrito">
         <button onClick={clear} className="clear-cart">Vaciar Carrito</button>

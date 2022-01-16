@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const HeroSection = () => {
+export const TeamUs = () => {
     return (
         <div>
-            <h2>soy la hero</h2>
+            <h1>I am the team one</h1>
         </div>
     )
 }

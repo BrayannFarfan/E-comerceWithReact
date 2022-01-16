@@ -12,6 +12,8 @@ import { Signup } from "./components/UserAuthenticate/Signup"
 import { Home } from "./components/page/Home";
 import { UIProvider } from "./context/UIContext";
 import { About } from "./components/page/About";
+import { Team} from "./components/page/Team"
+import { Contact} from "./components/page/Contact"
 
 
 function App() {
@@ -32,18 +34,11 @@ const {isAuthenticated} = useContext(UserAuthContext);
       <Navbar />
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About}/> 
-            <Route exact path="/category/:categoryId">
-              <ItemListContainer />
-            </Route>
-            <Route exact path="/item/:itemId">
-              <ItemDetailContainer />
-            </Route>
-            {/* <Route exact path="/checkout">
-              <Checkout/>
-            </Route> */}
-            <Route exact path="/cart">
-              <CartViewContainer />
-            </Route>
+            <Route exact path="/team" component={Team} />
+            <Route exact path="/contact" component={Contact} />
+            <Route exact path="/category/:categoryId" component={ItemListContainer} />
+            <Route exact path="/item/:itemId" component={ItemDetailContainer} />
+            <Route exact path="/cart" component={CartViewContainer}/>
             </>
       :
              <Route exact to="/login" component={UserAuthenticate} />

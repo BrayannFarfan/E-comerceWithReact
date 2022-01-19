@@ -1,0 +1,107 @@
+.about-content .about__text{
+    text-align: center;
+}
+.Contact__container{
+    width: 70%;
+    height: 100vh;
+    margin: 4rem auto;
+    display: flex;
+    align-items: center;
+}
+.contact__content{
+    width: 50%;
+}
+.contact__title h2{
+    font-size: 25px;
+    line-height: 1.32em;
+    font-weight: 600;
+    margin: 20px 0;
+    color: #000;
+    text-transform: uppercase;
+    vertical-align: baseline;
+    letter-spacing: .12em;
+}
+.contact__text {
+    width: 330px;
+}
+.contact__text .contact__text_item{
+    margin: 10px 0;
+    font-size: 14px ;
+    line-height: 25px;
+    font-weight: 400;
+    color: #999;
+    letter-spacing: .01em;
+}
+.contact__direction__item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    padding: 5px;
+}
+.contact__direction__item h6{
+    color: #545454;
+    font-size: 13px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    text-align: left;
+}
+.contact__direction__item p{
+    position: relative;
+    top: -0.5rem;
+    font-size: 14px;
+    font-weight: 400;
+    color: #999;
+    letter-spacing: .1em;
+}
+.contact__icons{
+    display: flex;
+    gap: 1rem;
+    color: #999;
+    cursor: pointer;
+}
+.contact__icons i:hover{
+    color: #ad9a3b;
+}
+.forms__container{
+    width: 50%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.forms__control{
+    width: 100%;
+    padding: 70px;  
+}
+.form__textarea{
+    width:  370px;
+    height: 80px;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    padding: 15px;
+    border: 1px solid #999;
+}
+.forms__input{
+    outline: none;
+    padding: 15px;
+    width: 370px;
+    outline: none;
+    border: 1px solid #999;
+}
+.form__btn{
+    background: #ad9a3b;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    width: 370px;
+    margin-top: 2rem;
+    padding: 15px;
+    margin-left: 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form__btn:hover{
+    background: #c4b153;
+}

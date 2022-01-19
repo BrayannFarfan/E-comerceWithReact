@@ -4,4 +4,20 @@
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
 }
+.contact__us {
+  background-image: url(image/contact.jpg);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+}
 
+.team__us {
+  background-image: url(image/team.jpg);
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+}

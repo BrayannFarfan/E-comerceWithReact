@@ -2,6 +2,7 @@ import React from 'react'
 import '../../index.css'
 import { AboutUs } from '../Banner/AboutUs'
 import { Cards } from '../Banner/Cards'
+import { Footer } from '../Banner/Footer'
 import { Ours } from '../Banner/Ours'
 
 export const About = () => {
@@ -10,6 +11,7 @@ export const About = () => {
             <AboutUs/>
             <Cards/>
             <Ours/>
+            <Footer/>
         </div>
     )
 }

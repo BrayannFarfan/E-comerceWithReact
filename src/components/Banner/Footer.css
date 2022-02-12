@@ -61,6 +61,9 @@
     width: 100px;
     height: 60px;
 }
+.footer__contain__img img{
+    width: 100%;
+}
 .footer__content__links{
     display: flex;
     flex-direction: column;

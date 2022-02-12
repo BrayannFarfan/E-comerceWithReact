@@ -20,12 +20,14 @@ export const ItemCounter = ({ cantidad, setCantidad }) => {
       <div className='options'>
 
         <button
+        className='btn-counter'
           onClick={handleRestar}
         >
           <FaAngleLeft />
         </button>
         <span className="options-cantidad">{cantidad}</span>
         <button
+        className='btn-counter'
           onClick={handleSumar}
         >
           <FaAngleRight />

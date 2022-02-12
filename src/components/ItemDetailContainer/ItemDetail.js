@@ -47,7 +47,7 @@ export const ItemDetail = ({ id, price, description, name, img, category, locati
 
 
 
-            {isInCart(id) ? <Link to="/cart"><button>IR AL CARRITO</button></Link> :
+            {isInCart(id) ? <Link to="/cart"><button className='btn-carrito'>IR AL CARRITO</button></Link> :
               <>
                 <div className='options'>
                   <ItemCounter cantidad={cantidad} setCantidad={setCantidad} />
@@ -56,16 +56,17 @@ export const ItemDetail = ({ id, price, description, name, img, category, locati
                 <div className='purchase-info'>
                   <p className='prices'>$ {price}</p>
                   <button
+                  className='btn-add'
                     onClick={handleAgregar}
                   >ADD TO CART</button>
                 </div>
-                <Link to="/products">
-                  <div className="history">
-                    <button>SEGUIR COMPRA</button>
-                  </div>
-                </Link>
               </>
             }
+                <Link to="/category/negra">
+                  <div>
+                    <button className='btn-history'>SEGUIR COMPRA</button>
+                  </div>
+                </Link>
 
           </div>
         </div>

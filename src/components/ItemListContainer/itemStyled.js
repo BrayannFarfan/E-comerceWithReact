@@ -16,35 +16,38 @@ padding: 15px;
 export const ContainerName = styled.h2`
 font-size: 1.3em;
 text-align: center;
-color: #184D47;
+color:#ad9a3b;
 `;
 
 
 export const ContainerDescription = styled.p`
 padding: 10px;
 color: #333;
+width: 200px
 `;
 
 export const ContainerPrice = styled.p`
 padding: 10px;
-color: red;
+color: #000;
 `;
 
 export const ContainerButton = styled.button`
   padding: 10px;
   cursor: pointer;
-  border: 1px solid #184D47;
   text-transform: uppercase ;
   transition: 1s;
-  background: transparent;
-  color: #333;
+  background: #ad9a3b;
+  color:#fff;
+  border: 2px solid #ad9a3b;
+  font-weight: bold;
   
-
-
+  
+  
   :hover{
-    background: #184D47;
-    color: #fff;
-    transition: 1s
+    color: #000;
+    transition: 1s;
+    background: transparent;
+
   }
 `;
 

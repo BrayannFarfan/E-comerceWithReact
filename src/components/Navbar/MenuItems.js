@@ -1,12 +1,12 @@
 export const MenuItems = [
   {
-    title: 'Cerveza Negra',
+    title: 'Cervezas Locales ',
     path: '/category/negra',
     cName: 'dropdown-link'
   },
   {
-    title: 'Cerveza  Rubia',
-    path: '/category/blanca',
+    title: 'Vinos Importados',
+    path: '/category/importados',
     cName: 'dropdown-link'
   }
 ];

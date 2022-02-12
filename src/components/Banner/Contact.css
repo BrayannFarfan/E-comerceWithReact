@@ -82,6 +82,7 @@
     margin-top: 2rem;
     padding: 15px;
     border: 1px solid #999;
+    resize: none;
 }
 .forms__input{
     outline: none;
@@ -104,4 +105,33 @@
 }
 .form__btn:hover{
     background: #c4b153;
+}
+
+@media screen and (max-width:950px) {
+    .Contact__container{
+        flex-direction: column;
+        /* margin-left: 0; */
+    }
+}
+@media screen and (max-width:480px) {
+    .contact__text_item{
+        position: relative;
+        left: -25%;
+        text-align: center;
+    }
+    .contact__title h2{
+        font-size: 14px;
+    }.forms__input, .form__textarea,.form__btn{
+        width: 270px;
+    }
+    .contact__direction{
+        left: -70%;
+        position: relative;
+    }
+    .contact__text {
+        width: 250px;
+    }
+    /* .forms__container{
+        margin-bottom: 7em;
+    } */
 }

@@ -29,9 +29,41 @@ const handleInputChange = (e) =>{
 const handleSubmit =  (e) => {
     e.preventDefault()
 
-    //  if(values.nombre.length < 3 ){
-    //   alert("nombre invalido")  
-    //  }
+
+
+    //   if(values.nombre.length < 3 ){
+    //     Swal.fire({
+    //       icon: 'error',
+    //       title: 'Oops...',
+    //       text: 'Completa tus datos',
+    //   })
+    //    return  
+    //   }
+    //   if(values.apellido.length < 3 ){
+    //     Swal.fire({
+    //       icon: 'error',
+    //       title: 'Oops...Complete el espacio de Apellido',
+    //   }) 
+    //     return
+    //    }
+
+
+    //    if(values.email.length < 3 ){
+    //     Swal.fire({
+    //       icon: 'error',
+    //       title: 'Oops...Complete el espacio de Email',
+    //   })
+    //   return
+    // }
+        
+       
+    //    if(values.tel.length < 3 ){
+    //     Swal.fire({
+    //       icon: 'error',
+    //       title: 'Oops...Complete el espacio de Telefono',
+    //   }) 
+    //     return
+    //    }
 
     let timerInterval
 Swal.fire({
@@ -76,78 +108,74 @@ Swal.fire({
   return (
     <>
     <div>
-      <div className="carrito">
-        <button onClick={clear} className="clear-cart">Vaciar Carrito</button>
-        
-      </div>
+      
       <h2 className="encabezado">Detalle de compra</h2>
       <aside className='aside'>
         <div className="summary">
           <div className="summary-total-items"><span className="total-items"></span>CheckOut de productos</div>
-          <div className="summary-subtotal">
-            <div className="subtotal-title">Subtotal</div>
-            <div className="subtotal-value final-value">$ {calcularTotal()}</div>
-
-          </div>
-          <div className="summary-delivery">
-            <select className="summary-delivery-selection">
-              <option defaultValue="0">Seleccione Opcion de envio</option>
-              <option defaultValue="collection">Retirar en Sucursal</option>
-              <option defaultValue="first-class">Mercado envios</option>
-              <option defaultValue="second-class">Correo Argentino</option>
-              <option defaultValue="signed-for">Rappi</option>
-            </select>
-          </div>
-
-
-          < form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className='form_ckeckout'>
             <h3>Complete sus datos</h3>
+            <div>
+              <input 
+                  type="text"
+                  placeholder="Nombre"
+                  className='forms__inputs'
+                  name="nombre"
+                  value={values.nombre}
+                  onChange={handleInputChange}
+                  />
+            </div>
+            <div>
+                <input 
+                    type="text"
+                    placeholder="Apellido"
+                    className='forms__inputs forms__input__modifier'
+                    name="apellido"
+                    value={values.apellido}
+                    onChange={handleInputChange}
+                />
+                </div>
+                <div>
+                    <input 
+                    type="email"
+                    placeholder="Email"
+                    className='forms__inputs'
+                    name="email"
+                    value={values.email}
+                    onChange={handleInputChange}
+                />
+                    {/* {!values.email.length ? <small className='errors__red'>Este campo es obligatorio</small> : ""} */}
+              </div>
+              <div>
+                <input 
+                type="number"
+                placeholder="Tel"
+                className='forms__inputs'
+                name="tel"
+                value={values.tel}
+                onChange={handleInputChange}
+            />
+                </div>
+                  <div className='btn-buy'>
+                    <div>
+                        <button className="btn-compra" type="submit">Finalizar Compra</button>
+                    </div>
+                    <div>
+                        <button onClick={clear} className="clear-cart">Cancelar Compra</button>
+                    </div>
+                  </div>
 
-<input 
-    type="text"
-    placeholder="Nombre"
-    name="nombre"
-    value={values.nombre}
-    onChange={handleInputChange}
-    />
-    {/* {values.nombre.length === 0 && <small>Este campo es obligatorio</small>} */}
-<input 
-     type="text"
-     placeholder="Apellido"
-     name="apellido"
-     value={values.apellido}
-     onChange={handleInputChange}
-/>
-    {/* {values.apellido.length === 0 && <small>Este campo es obligatorio</small>} */}
-    <input 
-     type="email"
-     placeholder="Email"
-     name="email"
-     value={values.email}
-     onChange={handleInputChange}
-/>
-    {/* {values.email.length === 0 && <small>Este campo es obligatorio</small>} */}
 
-    <input 
-     type="tel"
-     placeholder="Tel"
-     name="tel"
-     value={values.tel}
-     onChange={handleInputChange}
-/>
-    {/* {values.tel.length === 0 && <small>Este campo es obligatorio</small>} */}
-            <button className="" type="submit">Finalizar Compra</button>
             </form>
-
-
           <div className="summary-total">
+            <div className="summary-subtotal">
+              <div className="subtotal-title">Subtotal</div>
+              <div className="subtotal-value final-value">$ {calcularTotal()}</div>
+          </div>
             <div className="total-title">Total</div>
             <div className="total-value final-value">$ {calcularTotal()}</div>
           </div>
           <div className="summary-checkout">
-            {/* <Link to="/checkout">
-              <button className="clear-cart" >REALIZAR PAGO</button>
-            </Link> */}
           </div>
         </div>
       </aside>
@@ -161,7 +189,6 @@ Swal.fire({
                   <li className="item item-heading" >{pro.name} </li>
                   <li className="price" >Price</li>
                   <li className="quantity" >Cantidad</li>
-                  {/* <li className="subtotal" >Subtotal</li> */}
                 </ul>
               </div>
               <div className="basket-product">
@@ -170,19 +197,22 @@ Swal.fire({
                     <img src={pro.img} alt={pro.name} key={pro.id} className="product-frame" />
                   </div>
                   <div className="product-details">
-                    <h1><strong></strong>{pro.name}</h1>
-                    <p>{pro.locations}</p>
-                    <p>Codigo - {pro.code}</p>
+                    <div className='product-name'>
+                        <h1><strong></strong>{pro.name}</h1>
+                        <p>{pro.locations}</p>
+                        <p>Codigo - {pro.code}</p>
+                    </div>
+                    <div className='move_price'>
+                      <div className="price price_modifier">{pro.price}</div>
+                      <div className="quantity quantity_modifier">
+                        <p>{pro.cantidad}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="price">{pro.price}</div>
-                <div className="quantity">
-                  <p>{pro.cantidad}</p>
-                </div>
-                {/* <div className="subtotal">${subTotal}</div> */}
-                <div className="remove">
-                  <button onClick={() => removeItem(pro.id)}><BiTrashAlt className="trash" /></button>
-                </div>
+                
+                  <button  className="remove" onClick={() => removeItem(pro.id)}><BiTrashAlt className="trash" /></button>
+                
               </div>
             </div>
             

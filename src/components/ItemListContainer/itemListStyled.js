@@ -5,8 +5,10 @@ export const Title = styled.h1`
 text-align: center;
 margin-top: 4rem;
 font-size: 4rem;
-text-decoration:underline ;
-color: #184D47;
+color: #ad9a3b;
+line-height: 1.32em;
+font-weight: 600;
+letter-spacing: .01em;
 `;
 export const ContainerItem = styled.div`
 display: flex;

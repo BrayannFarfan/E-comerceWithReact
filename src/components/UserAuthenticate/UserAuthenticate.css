@@ -14,7 +14,7 @@
 }
 .form-control{
     background: rgb(255, 253, 253);
-    width: 350px;
+    width: 400px;
     height: 550px;
     padding: 38px 35px 0px 5px;
     border-radius: 5px;
@@ -24,6 +24,14 @@
     text-align: center;
     padding: 38px 27px 45px;
     font-size: 3rem;
+    /* font-size: 25px; */
+    line-height: 1.32em;
+    font-weight: 600;
+    margin: 20px 0;
+    color: #000;
+    text-transform: uppercase;
+    vertical-align: baseline;
+    letter-spacing: .12em;
 }
 form{
     display: flex;
@@ -54,7 +62,8 @@ form div input{
     width: 100%;
     box-shadow: none;
     border: 0;
-    background: #183b37;
+    background: #ad9a3b;
+    text-transform: uppercase;
     color: #fff;
     border-radius: 8px;
     cursor: pointer;
@@ -76,16 +85,20 @@ form div input{
     bottom: 2.5rem;
 }
 .btn-google{
-    display: block;
-    width: 50px;
+    /* display: block; */
+    width: 90%;
     height: 50px;
     border: none;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     cursor: pointer;
     font-size: 16px;
     position: relative;
-    top: 1rem;
-   
+    /* top: 1rem; */
+    border-radius: 8px;
+    left: -3px;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #ad9a3b;
 }
 .fa-google{
     color: red;
@@ -93,6 +106,13 @@ form div input{
 .up{
     top: 2rem;
     position: relative;
+    letter-spacing: .05em;
+}
+.up-modifier{
+    position: relative;
+    top: 3rem;
+    display: flex;
+    justify-content: center;
 }
 .sign{
     text-decoration: none;
@@ -112,6 +132,8 @@ form div input{
     .form-control{
         background: rgb(249, 249, 250);
     }
-
+    .form-control h2{
+        font-size: 2.5rem;
+    }
    
 }

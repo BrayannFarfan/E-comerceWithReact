@@ -1,52 +1,52 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
-import { UserAuthContext } from "../../context/UserAuthContext";
-import { useHistory } from 'react-router-dom';
 import './UserAuthenticate.css';
 import PowerSlap from "../../video/cervemark.mp4"
-import Swal from 'sweetalert2';
-//  import { useForm } from "react-hook-form";
+import { useForm } from '../../hooks/useForm';
 
 
+
+let initialForm = {
+    email:"",
+    password:""
+}
+
+
+const validationsLogin =(form) =>{
+  let errors = {}
+  let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
+
+
+  if(!form.email.trim()){
+    errors.email= "El campo 'Email' es 'Obligatorio'"
+  }else if(!regexEmail.test(form.email.trim())){
+    errors.email="El campo 'Email' solo acepta letras y espacios";
+  }
+
+
+  if(!form.password.trim()){
+    errors.password="El campo 'Password' es 'Obligatorio'"
+  }
+  return errors
+}
+
+
+let style={
+  color: "red",
+  fontSize: "14px",
+  position: "relative",
+  left: ".7rem"
+}
 export const UserAuthenticate = () => {
 
+const {
+  form,
+  errors,
+  handleChange,
+  handleBlur,
+  handleLogin,
+  handleGoogle} = useForm(initialForm , validationsLogin);
 
-//  const { register , handleSubmit, formState: { errors}} = useForm();
-const {login, loginGoogle} = useContext(UserAuthContext);
-const [ values , setValues] = useState({
-    email : '',
-    password : ''
-}); 
-
-const { email, password } = values;
-
-
-const { push } = useHistory()
-
-const handleChange = (e) => {
-    e.preventDefault();
-    setValues({
-        ...values,
-        [e.target.name] : e.target.value,
-    });
-}
-
-const handleSubmit = (e) =>{
-    e.preventDefault();
-    login(email,password)
-    .then( (res) => push('/'))
-    .catch((err) => Swal.fire({
-        icon: 'error',
-        title: 'Deberias poner datos en los campos',
-        text: 'Para una mejor experiencia , ingresa tus datos',
-      }));
-}
-
-const handleGoogle = (e) => {
-    e.preventDefault();
-    loginGoogle();
-    push("/");
-}
 
     return (
         <div>
@@ -66,52 +66,32 @@ const handleGoogle = (e) => {
             <div className='form-content'>
                 <div className='form-control'>
                     <h2>Login</h2>
-                    <form onSubmit={handleSubmit}> 
+                    <form onSubmit={handleLogin}> 
                         <div>
-                            <label>Email</label>
-                            {/* {
-                                errors.email && <span>{errors.email.message}</span>
-                            } */}
                             <input 
+                            className='forms__input'
+                            placeholder="Email"
                             type='email'
                             name='email'
-                            value={email}
+                            value={form.email}
                             onChange={handleChange}
-                            //  {...register("email", {
-                            //      required:{
-                            //          value:true,
-                            //          message: "El Email es obligatorio"
-                            //      },
-                            //      pattern:{
-                            //          // value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                            //          message: "Ingrese un Email Válido" 
-                            //      }
-                            //  })}
+                            onBlur={handleBlur}
+                            required
                             />
-                            
+                            {errors.email && <span style={style}>{errors.email}</span>}
                         </div>
                         <div>
-                            <label>Password</label>
-                            {/* {
-                                errors.password && <span>{errors.password.message}</span>
-                            } */}
                             <input 
+                            className='forms__input'
+                            placeholder="Password"
                             type='password'
                             name='password'
                             onChange={handleChange}
-                            value={password}
-                            //  {...register("password", {
-                            //      required:{
-                            //          value:true,
-                            //          message: "El Password es obligatorio"
-                            //      },
-                            //      minLength:{
-                            //          value: 8,
-                            //          message: "La contraseña debe tener por lo menos 8 caracteres"
-                            //      }
-                            //  })}
+                            onBlur={handleBlur}
+                            value={form.password}
+                            required
                             />
-                            
+                            {errors.password && <span style={style}>{errors.password}</span>}
                         </div>
                         <button
                         type='submit'
@@ -121,15 +101,15 @@ const handleGoogle = (e) => {
                         </button>
                     </form>
                     <div className='btn-links'>
-                        <p className='or'>Or Login with</p>
                     <button
                     type='submit'
                     onClick={handleGoogle}
                     className='btn-google'
                     >
-                    <i className="fab fa-google"></i>
+                    {/* <i className="fab fa-google"></i> */}
+                    ingresar con google
                     </button>
-                    <span className='up'>no tenes cuenta?
+                    <span className='up '>no tenes cuenta?
                         <Link  to="/signup" className='sign'>Sing Up</Link>
                     </span>
                         </div>

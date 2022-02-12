@@ -1,35 +1,50 @@
-import React, {useRef , useContext, } from 'react'
-import { UserAuthContext } from '../../context/UserAuthContext'
-import { useHistory } from 'react-router'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import PowerSlap from "../../video/cervemark.mp4"
-import Swal from 'sweetalert2'
-// import { useForm } from "react-hook-form";
+import { useForm } from '../../hooks/useForm';
+
+
+let initialForm = {
+    email:"",
+    password:"",
+    // confPassword:""
+}
+
+const ValidationsSign =(form) =>{
+    let errors = {}
+    let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
+    let regexPass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  
+  
+    if(!form.email.trim()){
+      errors.email= "El campo 'Email' es 'Obligatorio'"
+    }else if(!regexEmail.test(form.email.trim())){
+      errors.email="El campo 'Email' solo acepta letras y espacios";
+    }
+  
+  
+    if(!form.password.trim()){
+      errors.password="El campo 'Password' es 'Obligatorio'"
+    }else if(!regexPass.test(form.password.trim())){
+        errors.password="El Password debe tener Mínimo ocho caracteres, al menos una letra y un número"
+    }
+    return errors
+    
+  }
+
+  
+
+  let style={
+    color: "red",
+    fontSize: "14px",
+    position: "relative",
+    left: ".7rem"
+  }
 
 
 export const Signup = () => {
 
-    const emailRef = useRef()
-    const passwordRef = useRef()
-    const confPasswordRef = useRef()
-
-    const { signup} = useContext(UserAuthContext);
-    const { push } = useHistory()
-
-    const handleSignup = e =>{
-        e.preventDefault()
-
-        signup(emailRef.current.value, passwordRef.current.value, confPasswordRef.current.value)
-        Swal.fire({
-            icon: 'success',
-            title: 'Registro correcto',
-            text: 'Te redireccionaremos a la Home',
-            willClose: () =>{
-                push("/")
-              }
-          })
-    }
-
+const {form, errors ,handleBlur,handleChange,handleSignup} = useForm(initialForm, ValidationsSign)
     return (
         <div>
               <video autoPlay loop muted
@@ -47,35 +62,49 @@ export const Signup = () => {
             <div >
                 <div className='form-content'>
                     <div className='form-control'>
-                        <h2>Sign up</h2>
                         <form onSubmit={handleSignup}>
+                        <h2>Sign up</h2>
                             <div>
-                                <label>Email</label>
                                 <input 
+                                className='forms__input'
+                                placeholder='Email'
                                 type="email"
                                 name='email'
-                                ref={emailRef}
+                                value={form.email}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                // ref={emailRef}                                
                                 required
-                                />
+                                />  
+                                {errors.email && <span style={style}>{errors.email}</span>}                  
                             </div>
                             <div>
-                                <label>Password</label>
                                 <input 
+                                className='forms__input'
+                                placeholder='Password'
                                 type="password"
                                 name="password"
-                                ref={passwordRef}
+                                value={form.password}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                // ref={passwordRef}
                                 required
                                 />
+                                {errors.password && <span style={style}>{errors.password}</span>}
                             </div>
-                            <div>
-                                <label>Repetir Password</label>
+                            {/* <div>
                                 <input 
+                                className='forms__input'
                                 type="password"
                                 name='password'
-                                ref={confPasswordRef}
+                                placeholder='Password'
+                                value={form.confPassword}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                // ref={confPasswordRef}
                                 required
                                 />
-                            </div>
+                            </div> */}
                             <button
                             type='submit'
                             className='btn-login'
@@ -83,7 +112,7 @@ export const Signup = () => {
                                 Sign Up
                             </button>
                         </form>
-                        <span className='up'>ya tenes una cuenta? 
+                        <span className='up up-modifier'>ya tenes una cuenta? 
                             <Link to="/login" className='sign'>Login</Link>
                         </span>
                     </div>

@@ -45,19 +45,8 @@ h1 {
   margin-top: 20px;
   width: 100%;
 }
-
-/* button {
-  border: none;
-  height: 40px;
-  margin-top: auto;
-  padding-left: 25px;
-  padding-right: 25px;
-  color: #fff;
-  cursor: pointer;
-  background: #183b37;
-} */
 .options-cantidad {
-  padding: 15px;
+  padding: 5px;
 }
 .divider {
   width: 80%;
@@ -80,9 +69,46 @@ h1 {
   font-size: 40px;
   font-size: 2.5rem;
 }
-.history {
-  margin-top: 5px;
-  margin-left: 65%;
+
+.btn-counter{
+  width: 30px;
+  height: 25px;
+  background: #ad9a3b;
+  color: #fff;
+  border: none;
+  overflow: none;
+  cursor: pointer;
+}
+.btn-add{
+  border: none;
+  background-color: #ad9a3b;
+  width: 100px;
+  height: 50px;
+  bottom: 4rem;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+.btn-history{
+  border: none;
+  position: relative;
+  left: 76%;
+  top: -3rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: #ad9a3b;
+  width: 120px;
+  height: 50px;
+}
+.btn-carrito{
+  border: none;
+  position: relative;
+  color: #fff;
+  cursor: pointer;
+  background-color: #ad9a3b;
+  width: 120px;
+  height: 50px;
+
 }
 @media (max-width: 850px) {
   body {
@@ -124,9 +150,7 @@ h1 {
   .price {
     margin-bottom: 15px;
   }
-  .button {
-    width: 100%;
-  }
+  
   .color-options {
     margin-bottom: 15px;
   }
@@ -168,4 +192,5 @@ h1 {
     height: 100%;
     overflow: auto;
   }
+
 }
